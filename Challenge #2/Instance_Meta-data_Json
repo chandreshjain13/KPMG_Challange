@@ -3,6 +3,7 @@
 #Fetching instance id from meta data service
 INSTANCE_ID=$(curl -s http://169.254.169.254/latest/meta-data/instance-id) 
 
+#By using -s flag in curl command it will work silently.
 #Fetching instance type from meta data service
 INSTANCE_TYPE=$(curl -s http://169.254.169.254/latest/meta-data/instance-type)
 
