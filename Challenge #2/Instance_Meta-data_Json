@@ -1,0 +1,19 @@
+#!/bin/bash
+
+#Fetching instance id from meta data service
+INSTANCE_ID=$(curl -s http://169.254.169.254/latest/meta-data/instance-id) 
+
+#Fetching instance type from meta data service
+INSTANCE_TYPE=$(curl -s http://169.254.169.254/latest/meta-data/instance-type)
+
+
+# Output in json format
+json_output=$(cat <<EOF
+
+{
+    "provider": "AWS",
+    "instance_id": "$INSTANCE_ID",
+    "instance_type": "$INSTANCE_TYPE"
+}
+EOF
+)
